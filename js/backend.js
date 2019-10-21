@@ -1,6 +1,6 @@
 'use strict';
 
-window.backend = (function () {
+(function () {
   var addXhrListeners = function (xhr, onLoad, onError) {
     xhr.addEventListener('load', function () {
       if (xhr.status === 200) {
@@ -17,7 +17,7 @@ window.backend = (function () {
     });
   };
 
-  return {
+  window.backend = {
     load: function (onLoad, onError) {
       var URL = 'https://js.dump.academy/code-and-magick/data';
       var xhr = new XMLHttpRequest();
@@ -27,7 +27,6 @@ window.backend = (function () {
       xhr.open('GET', URL);
       xhr.send();
     },
-
     save: function (data, onLoad, onError) {
       var URL = 'https://js.dump.academy/code-and-magick';
       var xhr = new XMLHttpRequest();
